@@ -1,0 +1,9 @@
+.events {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center; }
+
+@media (max-width: 999px) {
+  .event-2 {
+    display: none; } }

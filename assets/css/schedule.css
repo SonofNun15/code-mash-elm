@@ -1,0 +1,62 @@
+main section .days {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start; }
+
+main section .day {
+  margin: 0 25px; }
+
+main section .schedule {
+  position: relative;
+  margin-top: 25px; }
+  main section .schedule tr {
+    border-spacing: 0; }
+  main section .schedule td {
+    box-sizing: border-box;
+    height: 40px; }
+  main section .schedule td.time {
+    width: 70px;
+    text-align: right; }
+  main section .schedule .time span {
+    background: white;
+    position: relative;
+    top: -20px;
+    font-size: 0.9em;
+    color: #666;
+    text-transform: uppercase; }
+  main section .schedule td.space, main section .schedule td.event-cell {
+    border-top: 1px dashed #0c84a9;
+    color: #666; }
+  main section .schedule td.space {
+    width: 15px; }
+  main section .schedule td.event-cell {
+    width: 150px; }
+  main section .schedule .event {
+    width: 140px; }
+  main section .schedule div.event, main section .schedule a.event {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #666;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #ddd;
+    box-shadow: 3px 3px 3px #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    main section .schedule div.event:hover, main section .schedule a.event:hover {
+      background: white;
+      color: orange;
+      cursor: pointer; }
+
+@media (max-width: 999px) {
+  main section .day-2 {
+    display: none; } }
+
+@media (max-width: 600px) {
+  main section .schedule td.event-cell {
+    width: 130px; }
+  main section .schedule .event {
+    width: 120px; } }

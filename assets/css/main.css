@@ -1,0 +1,95 @@
+html, body {
+  height: 100%;
+  margin: 0; }
+
+body {
+  color: #222; }
+
+.site {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%; }
+  .site .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll; }
+  .site main {
+    flex: 1;
+    width: 1200px;
+    margin: 10px auto; }
+  .site .scroll-bar {
+    display: none;
+    flex-direction: row; }
+    .site .scroll-bar button {
+      flex: 1;
+      font-size: 1.2em; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    color: orange; }
+
+.scroll {
+  font-size: 2em;
+  align-self: center;
+  margin-right: 25px; }
+  .scroll:hover {
+    color: orange;
+    cursor: pointer; }
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center; }
+
+.return {
+  margin-right: 25px;
+  font-size: 1.5em; }
+
+ul.category-tags {
+  margin: 0.5em 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0; }
+  ul.category-tags li {
+    display: inline-block;
+    background: #0c84a9;
+    color: white;
+    padding: 4px;
+    margin-right: 8px;
+    border-radius: 5px;
+    font-size: 0.8em; }
+    ul.category-tags li a {
+      color: white; }
+    ul.category-tags li:hover {
+      cursor: pointer; }
+      ul.category-tags li:hover a {
+        color: orange; }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+@media (min-width: 1000px) and (max-width: 1199px) {
+  .site main {
+    width: 900px; } }
+
+@media (min-width: 601px) and (max-width: 999px) {
+  .site main {
+    width: auto;
+    margin: 20px; } }
+
+@media (max-width: 600px) {
+  .site main {
+    width: auto;
+    margin: 8px; }
+  .site .scroll {
+    display: none; }
+  .site .scroll-bar {
+    display: flex; } }
