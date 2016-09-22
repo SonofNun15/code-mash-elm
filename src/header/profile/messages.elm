@@ -1,5 +1,7 @@
 module Header.Profile.Messages exposing (Msg(..))
 
+import Mouse
+
 type Msg
   = ShowProfileMenu
   | GotoProfile
@@ -7,3 +9,4 @@ type Msg
   | LogOut
   | ShowLogIn
   | LogIn String String
+  | MouseClick Mouse.Position

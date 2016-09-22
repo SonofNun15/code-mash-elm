@@ -7,6 +7,7 @@ import Messages exposing (Msg(..))
 import Model exposing (Model, initialModel)
 import Update exposing (update)
 import View exposing (view)
+import Header.Subscriptions
 
 
 init : ( Route, Address ) -> ( Model, Cmd Msg )
@@ -18,7 +19,9 @@ init (route, address) =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Sub.none
+  Sub.batch
+    [ Sub.map HeaderMsg (Header.Subscriptions.subscriptions model.profileModel)
+    ]
 
 
 -- URL UPDATE

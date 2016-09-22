@@ -35,3 +35,6 @@ update msg model =
     LogIn username password ->
       ( { model | profile = LoggedIn { name = "Josh", id = 1, bio = Nothing } }, Cmd.none )
 
+    MouseClick positions ->
+      ( { model | showMenu = False }, Cmd.none )
+
