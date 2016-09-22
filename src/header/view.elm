@@ -1,13 +1,15 @@
 module Header.View exposing (header)
 
+import Html.App
 import Html exposing (Html, a, img, nav, ul, li, button, div, i, text)
 import Html.Attributes exposing (class, href, src, height)
 import Html.Events exposing (onClick)
 import Header.Messages exposing (Msg(..))
-import Models.Profile exposing (Profile(..))
+import Header.Profile.Model as Profile
+import Header.Profile.View
 
-header : Profile -> Html Msg
-header profile =
+header : Profile.Model -> Html Msg
+header model =
   Html.header []
     [ a [ class "brand", href "http://www.codemash.org" ]
       [ img [ src "/assets/images/codemash-icon.png", height 50 ] []
@@ -35,26 +37,6 @@ header profile =
         , i [ class "fa fa-caret-down" ] []
         ]
       ]
-    , profileView profile
+    , Html.App.map ProfileMsg <| Header.Profile.View.view model
     ]
 
-profileView : Profile -> Html Msg
-profileView profile =
-  case profile of
-    LoggedOut ->
-      div [ class "profile" ]
-        [ button [] [ text "Log in" ]
-        ]
-
-    LoggedIn person ->
-      div [ class "profile" ]
-        [ div [ class "menu" ]
-          [ div [ class "pic" ] []
-          , i [ class "drop-down fa fa-caret-down" ] []
-          ]
-        , div [ class "schedule" ]
-          [ a [ onClick GotoCalendar ]
-            [ i [ class "fa fa-calendar" ] []
-            ]
-          ]
-        ]

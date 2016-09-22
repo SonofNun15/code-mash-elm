@@ -1,9 +1,10 @@
 module Header.Messages exposing (Msg(..))
 
+import Header.Profile.Messages
+
 type Msg
   = GotoSchedule
   | GotoEvents
   | GotoPresenters
   | GotoCategories
-  | GotoProfile
-  | GotoCalendar
+  | ProfileMsg Header.Profile.Messages.Msg

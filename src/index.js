@@ -4,6 +4,7 @@ require('./elm.css');
 require('../assets/css/main.css');
 require('../assets/css/header.css');
 require('../assets/css/footer.css');
+require('../assets/css/styles.css');
 
 // Require index.html so it gets copied to dist
 require('./index.html');

@@ -4,10 +4,11 @@ import Hop
 import Navigation
 import Routing exposing (hopConfig)
 import Header.Messages exposing (Msg(..))
-import Models.Profile exposing (Profile)
+import Header.Profile.Model as Profile
+import Header.Profile.Update exposing (update)
 
 
-update : Msg -> Profile -> ( Profile, Cmd Msg )
+update : Msg -> Profile.Model -> ( Profile.Model, Cmd Msg )
 update msg profile =
   case msg of
     GotoSchedule ->
@@ -34,14 +35,9 @@ update msg profile =
       in
         ( profile, Navigation.newUrl target )
 
-    GotoProfile ->
+    ProfileMsg profileMsg ->
       let
-        target = Hop.outputFromPath hopConfig "profile"
+        ( updatedProfile, cmd ) =
+          Header.Profile.Update.update profileMsg profile
       in
-        ( profile, Navigation.newUrl target )
-
-    GotoCalendar ->
-      let
-        target = Hop.outputFromPath hopConfig "calendar"
-      in
-        ( profile, Navigation.newUrl target )
+        ( updatedProfile, Cmd.map ProfileMsg cmd)

@@ -13,9 +13,9 @@ update msg model =
     HeaderMsg headerMsg ->
       let
         ( updatedProfile, cmd ) =
-          Header.Update.update headerMsg model.profile
+          Header.Update.update headerMsg model.profileModel
       in
-        ( { model | profile = updatedProfile }, Cmd.map HeaderMsg cmd)
+        ( { model | profileModel = updatedProfile }, Cmd.map HeaderMsg cmd)
 
     FooterMsg footerMsg ->
       ( model, Cmd.none )

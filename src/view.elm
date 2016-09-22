@@ -15,7 +15,7 @@ import ScrollBar.View exposing (scrollbar)
 view : Model -> Html Msg
 view model =
   div [ class "site" ]
-    [ Html.App.map HeaderMsg (header model.profile)
+    [ Html.App.map HeaderMsg (header model.profileModel)
     , content model
     , scrollbar
     ]
