@@ -15,25 +15,20 @@ update msg model =
       ( { model | showMenu = True }, Cmd.none )
 
     GotoProfile ->
-      let
-        target = Hop.outputFromPath hopConfig "profile"
-      in
-        ( model, Navigation.newUrl target )
+      let target = Hop.outputFromPath hopConfig "profile"
+      in ( model, Navigation.newUrl target )
 
     GotoCalendar ->
-      let
-        target = Hop.outputFromPath hopConfig "calendar"
-      in
-        ( model, Navigation.newUrl target )
+      let target = Hop.outputFromPath hopConfig "calendar"
+      in ( model, Navigation.newUrl target )
 
     LogOut ->
-      ( { model | profile = LoggedOut }, Cmd.none )
+      let target = Hop.outputFromPath hopConfig ""
+      in ( { model | profile = LoggedOut }, Navigation.newUrl target )
 
-    ShowLogIn ->
-      ( { model | showLogin = True }, Cmd.none )
-
-    LogIn username password ->
-      ( { model | profile = LoggedIn { name = "Josh", id = 1, bio = Nothing } }, Cmd.none )
+    GotoLogIn ->
+      let target = Hop.outputFromPath hopConfig "login"
+      in ( model, Navigation.newUrl target )
 
     MouseClick positions ->
       ( { model | showMenu = False }, Cmd.none )

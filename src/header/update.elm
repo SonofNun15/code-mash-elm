@@ -12,32 +12,22 @@ update : Msg -> Profile.Model -> ( Profile.Model, Cmd Msg )
 update msg profile =
   case msg of
     GotoSchedule ->
-      let
-        target = Hop.outputFromPath hopConfig "schedule"
-      in
-        ( profile, Navigation.newUrl target )
+      let target = Hop.outputFromPath hopConfig "schedule"
+      in ( profile, Navigation.newUrl target )
 
     GotoEvents ->
-      let
-        target = Hop.outputFromPath hopConfig "events"
-      in
-        ( profile, Navigation.newUrl target )
+      let target = Hop.outputFromPath hopConfig "events"
+      in ( profile, Navigation.newUrl target )
 
     GotoPresenters ->
-      let
-        target = Hop.outputFromPath hopConfig "presenters"
-      in
-        ( profile, Navigation.newUrl target )
+      let target = Hop.outputFromPath hopConfig "presenters"
+      in ( profile, Navigation.newUrl target )
 
     GotoCategories ->
-      let
-        target = Hop.outputFromPath hopConfig "categories"
-      in
-        ( profile, Navigation.newUrl target )
+      let target = Hop.outputFromPath hopConfig "categories"
+      in ( profile, Navigation.newUrl target )
 
     ProfileMsg profileMsg ->
-      let
-        ( updatedProfile, cmd ) =
-          Header.Profile.Update.update profileMsg profile
-      in
-        ( updatedProfile, Cmd.map ProfileMsg cmd)
+      let ( updatedProfile, cmd ) =
+        Header.Profile.Update.update profileMsg profile
+      in ( updatedProfile, Cmd.map ProfileMsg cmd)

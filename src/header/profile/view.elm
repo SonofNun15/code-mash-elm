@@ -12,7 +12,7 @@ view model =
   case model.profile of
     LoggedOut ->
       div [ class "profile" ]
-        [ button [ onClick <| LogIn "josh" "pass" ] [ text "Log in" ]
+        [ button [ onClick GotoLogIn ] [ text "Log in" ]
         ]
 
     LoggedIn person ->

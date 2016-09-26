@@ -7,6 +7,5 @@ type Msg
   | GotoProfile
   | GotoCalendar
   | LogOut
-  | ShowLogIn
-  | LogIn String String
+  | GotoLogIn
   | MouseClick Mouse.Position

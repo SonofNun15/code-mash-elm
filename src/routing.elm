@@ -6,13 +6,19 @@ import Navigation
 import Hop
 import Models.Person exposing (PersonId)
 
+import Content.Login.Model as LoginModel
+import Content.Profile.Model as ProfileModel
+import Content.Register.Model as RegisterModel
+
 type Route
   = ScheduleRoute
   | EventsRoute
   | PresentersRoute
   | CategoriesRoute
-  | ProfileRoute
   | CalendarRoute
+  | LoginRoute LoginModel.Model
+  | ProfileRoute ProfileModel.Model
+  | RegisterRoute RegisterModel.Model
   | NotFoundRoute
 
 matchers : Parser (Route -> a) a
@@ -23,8 +29,10 @@ matchers =
     , format EventsRoute (s "events")
     , format PresentersRoute (s "presenters")
     , format CategoriesRoute (s "categories")
-    , format ProfileRoute (s "profile")
     , format CalendarRoute (s "calendar")
+    , format (LoginRoute LoginModel.defaultModel) (s "login")
+    , format (ProfileRoute ProfileModel.defaultModel) (s "profile")
+    , format (RegisterRoute RegisterModel.defaultModel) (s "profile")
     ]
 
 hopConfig : Config
